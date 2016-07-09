@@ -69,6 +69,8 @@ ul {
   Grid System
 ==============================================================================*/
 .col-4 {
+  padding: $pad;
+  
   @media all and (min-width: $bp-large) {
     width: percent(3);
     float: left;
