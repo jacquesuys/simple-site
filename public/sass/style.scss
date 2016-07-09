@@ -10,6 +10,10 @@ $bp-large-2 : 54.5em;
 $bp-xl : 60em;
 $bp-xl-2 : 67em;
 
+$pad: 15px;
+$pad-hero-sm: 85px;
+$pad-hero-lg: 185px;
+
 @mixin clearfix {
   &:after {
     content: "";
@@ -27,11 +31,11 @@ body {
   background-color: #ccc;
 
   /* For sticky nav */
-  padding-top: 75px;
+  padding-top: $pad-hero-sm;
 
   /* For sticky nav */
   @media all and (min-width: $bp-large) {
-    padding-top: 175px;
+    padding-top: $pad-hero-lg;
   }
 }
 
@@ -48,9 +52,14 @@ img {
   max-width: 100%;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 .container {
   margin: 0 auto;
-  padding: 10px;
+  padding: $pad;
 }
 
 header {
@@ -60,6 +69,11 @@ header {
   left: 0;
   width: 100%;
   z-index: 2;
+  text-transform: uppercase;
+
+  h1 {
+    margin: 0;
+  }
 }
 
 .logo {
@@ -155,9 +169,6 @@ header {
 
 /* Side Nav, for desktop */
 .side-nav {
-  ul {
-    list-style-type: none;
-  }
 
   @media all and (min-width: $bp-large) {
     text-align: center;
@@ -165,39 +176,55 @@ header {
     li {
       display: inline;
     }
+
+    .social__container {
+      position: absolute;
+      top: $pad;
+      left: $pad;
+    }
   }
 }
 
 .hero {
   position: absolute;
-  top: 75px;
+  top: $pad-hero-sm;
   left: 0;
   right: 0;
   bottom: 0;
   height: 450px;
   z-index: 1;
-  background: url('../img/hero.jpg') no-repeat;
+  background: url('../img/hero.jpg') fixed no-repeat;
 
   @media all and (min-width: $bp-large) {
-    top: 175px;
+    top: $pad-hero-lg;
+  }
+
+  .content {
+    text-align: center;
   }
 }
 
 .hero--visible {
-  padding-top: 525px;
-  
+  padding-top: 450 + $pad-hero-sm;
+
   @media all and (min-width: $bp-large) {
-    padding-top: 625px;
+    padding-top: 450 + $pad-hero-lg;
   }
 }
 
 .product {
-  height: 1000px;
   background-color: #fff;
   padding: 15px;
+  height: 1000px;
 
   .container {
     background-color: #e7e7e7;
+  }
+}
+
+footer {
+  h4 {
+    margin: 0;
   }
 }
 
