@@ -1,5 +1,9 @@
 @import 'reset';
 
+/*============================================================================
+  Brad Frost Breakpoints
+  http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/
+==============================================================================*/
 $bp-small : 24em;
 $bp-small-2 : 29.75em;
 $bp-small-3 : 39.8em;
@@ -20,6 +24,10 @@ $pad-hero-lg: 185px;
     display: table;
     clear: both;
   }
+}
+
+@function percent($divisor) {
+  @return (100 / $divisor) * 1%;
 }
 
 * {
@@ -55,6 +63,17 @@ img {
 ul {
   list-style-type: none;
   padding: 0;
+}
+
+/*============================================================================
+  Grid System
+==============================================================================*/
+.col-4 {
+  @media all and (min-width: $bp-large) {
+    width: percent(3);
+    float: left;
+    @include clearfix;
+  }
 }
 
 .container {
@@ -104,10 +123,10 @@ header {
   float: right;
 }
 
-/* 
+/*============================================================================
   Side Nav, for devices based on:
   https://github.com/GoogleChrome/ui-element-samples/blob/gh-pages/side-nav/styles.css
- */
+==============================================================================*/
 @media all and (max-width: $bp-large) {
   .side-nav {
     position: fixed;
@@ -167,9 +186,10 @@ header {
   }
 }
 
-/* Side Nav, for desktop */
+/*============================================================================
+  Side Nav, for desktop
+==============================================================================*/
 .side-nav {
-
   @media all and (min-width: $bp-large) {
     text-align: center;
 
@@ -199,7 +219,7 @@ header {
     top: $pad-hero-lg;
   }
 
-  .content {
+  .container {
     text-align: center;
   }
 }
