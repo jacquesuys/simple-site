@@ -26,8 +26,10 @@ body {
   font-size: 16px;
   background-color: #ccc;
 
+  /* For sticky nav */
   padding-top: 75px;
 
+  /* For sticky nav */
   @media all and (min-width: $bp-large) {
     padding-top: 175px;
   }
@@ -57,6 +59,17 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 2;
+}
+
+.logo {
+  max-width: 100px;
+  margin: 0 auto;
+  display: block;
+
+  @media all and (max-width: $bp-large) {
+    max-width: 50px;
+  }
 }
 
 .menu-show {
@@ -155,12 +168,36 @@ header {
   }
 }
 
-.logo {
-  max-width: 100px;
-  margin: 0 auto;
-  display: block;
+.hero {
+  position: absolute;
+  top: 75px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 450px;
+  z-index: 1;
+  background: url('../img/hero.jpg') no-repeat;
 
-  @media all and (max-width: $bp-large) {
-    max-width: 50px;
+  @media all and (min-width: $bp-large) {
+    top: 175px;
   }
 }
+
+.hero--visible {
+  padding-top: 525px;
+  
+  @media all and (min-width: $bp-large) {
+    padding-top: 625px;
+  }
+}
+
+.product {
+  height: 1000px;
+  background-color: #fff;
+  padding: 15px;
+
+  .container {
+    background-color: #e7e7e7;
+  }
+}
+
