@@ -1,7 +1,7 @@
 {
-  "name": "Gulp Starter Kit",
+  "name": "Beautyfix",
   "version": "1.0.0",
-  "description": "A Gulp starter kit",
+  "description": "A Beautyfix Shopify theme",
   "main": "gulpfile.js",
   "devDependencies": {
     "git": "^0.1.5",
