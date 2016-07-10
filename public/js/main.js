@@ -38,15 +38,14 @@ function backToTop() {
   var backTop = document.querySelector('.back-to--Top');
 
   backTop.addEventListener('click', function(){
-    ButteryScroll(body, 0, 500);
+    ButteryScroll(body, 500);
   });
 
   <!-- // https://gist.github.com/viljamis/6cd87add10414563acd9 -->
-  function ButteryScroll(scrollable, distance, duration) {
+  function ButteryScroll(scrollable, duration) {
     var startTime;
     var startPos = scrollable.scrollTop;
-    var maxScroll = scrollable.scrollHeight - scrollable.offsetHeight;
-    var scrollEndValue = startPos + distance < maxScroll ? distance : maxScroll - startPos;
+    var scrollEndValue = scrollable.scrollTop * -1;
 
     function easeInOutCubic(t, b, c, d) {
       if ((t /= d / 2) < 1) {
