@@ -18,6 +18,13 @@ $pad: 15px;
 $pad-hero-sm: 85px;
 $pad-hero-lg: 185px;
 
+/*============================================================================
+  Variable Queries Strings
+  http://thesassway.com/intermediate/responsive-web-design-in-sass-using-media-queries-in-sass-32
+==============================================================================*/
+$device-only: "all and (max-width: $bp-large)";
+$desktop-only: "all and (min-width: $bp-large)";
+
 @mixin clearfix {
   &:after {
     content: "";
@@ -26,7 +33,7 @@ $pad-hero-lg: 185px;
   }
 }
 
-@function percent($divisor) {
+@function col($divisor) {
   @return (100 / $divisor) * 1%;
 }
 
@@ -42,7 +49,7 @@ body {
   padding-top: $pad-hero-sm;
 
   /* For sticky nav */
-  @media all and (min-width: $bp-large) {
+  @media #{$desktop-only} {
     padding-top: $pad-hero-lg;
   }
 }
@@ -68,11 +75,15 @@ ul {
 /*============================================================================
   Grid System
 ==============================================================================*/
+.col-12 {
+  width: 100%;
+  float: left;
+  @include clearfix;
+}
+
 .col-4 {
-  padding: $pad;
-  
-  @media all and (min-width: $bp-large) {
-    width: percent(3);
+  @media #{$desktop-only} {
+    width: col(3);
     float: left;
     @include clearfix;
   }
@@ -102,7 +113,7 @@ header {
   margin: 0 auto;
   display: block;
 
-  @media all and (max-width: $bp-large) {
+  @media #{$device-only} {
     max-width: 50px;
   }
 }
@@ -110,13 +121,13 @@ header {
 .menu-show {
   float: left;
 
-  @media all and (min-width: $bp-large) {
+  @media #{$desktop-only} {
     display: none;
   }
 }
 
 .menu-hide {
-  @media all and (min-width: $bp-large) {
+  @media #{$desktop-only} {
     display: none;
   }
 }
@@ -129,7 +140,7 @@ header {
   Side Nav, for devices based on:
   https://github.com/GoogleChrome/ui-element-samples/blob/gh-pages/side-nav/styles.css
 ==============================================================================*/
-@media all and (max-width: $bp-large) {
+@media #{$device-only} {
   .side-nav {
     position: fixed;
     left: 0;
@@ -192,7 +203,7 @@ header {
   Side Nav, for desktop
 ==============================================================================*/
 .side-nav {
-  @media all and (min-width: $bp-large) {
+  @media #{$desktop-only} {
     text-align: center;
 
     li {
@@ -217,7 +228,7 @@ header {
   z-index: 1;
   background: url('../img/hero.jpg') fixed no-repeat;
 
-  @media all and (min-width: $bp-large) {
+  @media #{$desktop-only} {
     top: $pad-hero-lg;
   }
 
@@ -229,7 +240,7 @@ header {
 .hero--visible {
   padding-top: 450 + $pad-hero-sm;
 
-  @media all and (min-width: $bp-large) {
+  @media #{$desktop-only} {
     padding-top: 450 + $pad-hero-lg;
   }
 }
